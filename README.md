@@ -14,3 +14,8 @@ The expected outcome
 2. Code (Ipython notebook)
 3. Output result (.html)
 4. Writeup (.md)
+
+LICENSE
+---
+
+MIT License
