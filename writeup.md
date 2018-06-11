@@ -22,6 +22,9 @@ The goals / steps of this project are the following:
 [diagram1]: ./T1-P1.png "Pipeline"
 
 My pipeline is illustrated in below diagram.
+
+![alt text][diagram1]
+
 1. Convert src image into grayscale.
 1. Mask the luma value into certain range in order to stabilize the black color of road surface.
 1. Apply gaussian blur to reduce the noise so that edge detection become stable.
@@ -31,16 +34,14 @@ My pipeline is illustrated in below diagram.
 1. Extrapolate the left and right lane by averaging the lines.
 1. Draw the lane image and blend it with src image.
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by:
-separating line segments into left line vs. the right line. This is done by:
+In order to draw a single line on the left and right lanes, I modified the draw_lines() function by separating line segments into left line and right line. This is done by:
 - Their slope ((y2-y1)/(x2-x1)). 
--- At the same time, the parameter "slope_thr" is used to remove the line other than lane.
+    - At the same time, the parameter "slope_thr" is used to remove the line other than lane.
 - The position (right half or left half) of line segments.
 
 After that, the position of each of the lines are averaged into one line segment.
 By using linear equation corresponding to that segment, we can extrapolate the top and bottom of the lane.
 
-![alt text][diagram1]
 
 
 ### 2. Identify potential shortcomings with your current pipeline
